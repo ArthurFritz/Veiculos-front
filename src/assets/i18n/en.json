@@ -1,0 +1,26 @@
+{
+    "title":"Veichile - 1.0.0",
+    "dashboard": "Dashboard",
+    "timeline": "Timeline",
+    "menu": "Menu",
+    "language": "Language",
+    "pessoa": "People",
+    "carro": "Veichile",
+    "portugues":"Portuguese (BR)",
+    "ingles":"English",
+    "people":{
+        "new": "New people",
+        "edit": "Edit people",
+        "list": "List people",
+        "nome": "Name",
+        "documento": "Document",
+        "nascimento": "Birthday"
+    },
+    "acoes": "Actions",
+    "editar": "Edit",
+    "delete": "Remove",
+    "confirm": "Confirm",
+    "save": "Save",
+    "incluir": "New"
+}
+

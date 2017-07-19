@@ -1,0 +1,74 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'pessoa'" [icon]="'fa-user'"></app-page-header>
+    <div class="row" *ngIf="status=='list'">
+        <div class="col col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    {{'people.list' | translate}} <button class="btn btn-sm btn-success" (click)="newPeople()" style="float:right"><i class="fa fa-plus"></i> {{'incluir' | translate}}</button>
+                </div>
+                <div class="card-block table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>{{'people.nome' | translate}}</th>
+                            <th>{{'people.documento' | translate}}</th>
+                            <th>{{'people.nascimento' | translate}}</th>
+                            <th>{{'acoes' | translate}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngIf="listPeoples.length == 0">
+                            <td colspan="4">Nenhum registro encontrado...</td>
+                        </tr>
+                        <tr *ngFor="let item of listPeoples">
+                            <td>{{item.nome}}</td>
+                            <td>{{item.documento}}</td>
+                            <td>{{item.dataNascimento | date:'d/M/y'}}</td>
+                            <td>
+                                <button class="button btn-link cursor" (click)="editar(item)"><i class="fa fa-edit"></i></button> 
+                                <button class="button text-danger btn-link cursor" (click)="excluir(item)"><i class="fa fa-remove"></i></button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row" *ngIf="status!='list'">
+        <div class="col col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    {{ (status=='edit' ? 'people.edit' : 'people.new') | translate}}
+                </div>
+                <div class="card-block">
+                    <form role="form" [formGroup]="formPessoa">
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <input type="text" formControlName="nome" class="form-control" placeholder="{{'people.nome' | translate}}">
+                        </div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                            <input type="text" formControlName="documento" class="form-control" placeholder="{{'people.documento' | translate}}">
+                        </div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            <input type="text" [(ngModel)]="data" (click)="d.toggle()" ngbDatepicker #d="ngbDatepicker"  formControlName="dataNascimento" class="form-control" placeholder="{{'people.nascimento' | translate}}">
+                        </div>
+                    </form>
+                    <button class="btn btn-danger" type="button" (click)="status='list'"> <i class="fa fa-close"></i> Cancelar</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-success" [disabled]="!formPessoa.valid" type="button" (click)="saveAction()"> <i class="fa fa-check"></i> Salvar</button>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{
+    "title":"Veículo - 1.0.0",
+    "dashboard": "Painel Geral",
+    "timeline": "Linha do tempo",
+    "menu": "Menu",
+    "language": "Idioma",
+    "pessoa": "Pessoa",
+    "carro": "Veículo",
+    "portugues":"Português",
+    "ingles":"Inglês",
+    "people":{
+        "new": "Nova pessoa",
+        "edit": "Editar pessoa",
+        "list": "Lista de pessoas",
+        "nome": "Nome",
+        "documento": "Documento",
+        "nascimento": "Data Nascimento",
+        "acoes": "Ações"
+    },
+    "acoes": "Ações",
+    "editar": "Editar",
+    "delete": "Remover",
+    "confirm": "Confirmar",
+    "save": "Salvar",
+    "incluir": "Novo"
+}
