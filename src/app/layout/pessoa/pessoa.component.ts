@@ -50,11 +50,15 @@ export class PessoaComponent implements OnInit {
         }
     }
 
+    cancelar(){
+        this.status = 'list';
+    }
+
     editar(item){
         this.itemEdit = item;
         var items = String(item.dataNascimento).split("T");
         var date = items[0].split("-");
-        this.data =  {year: date[0], month: date[1], day:date[2]};
+        this.data =  {year: +date[0], month: +date[1], day: +date[2]};
         this.formPessoa.get("nome").setValue(item.nome);
         this.formPessoa.get("documento").setValue(item.documento);
         this.status='edit';
@@ -62,7 +66,6 @@ export class PessoaComponent implements OnInit {
 
     saveAction(){
         var dataRequest = this.formPessoa.value;
-        console.log(dataRequest);
         dataRequest.dataNascimento = new Date(this.data.year+"-"+this.data.month+"-"+this.data.day);
         if(this.status=='edit'){
             dataRequest.id = this.itemEdit.id
