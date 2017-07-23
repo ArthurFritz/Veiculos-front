@@ -17,10 +17,22 @@
         "nascimento": "Data Nascimento",
         "acoes": "Ações"
     },
+    "veiculo":{
+        "new": "Novo veículo",
+        "edit": "Editar veículo",
+        "list": "Lista de veículos",
+        "marca": "Marca",
+        "modelo": "Modelo",
+        "placa": "Placa",
+        "pessoa": "Pessoa",
+        "seleciona_pessoa": "Selecionar pessoa",
+        "ano": "Ano"
+    },
     "acoes": "Ações",
     "editar": "Editar",
     "delete": "Remover",
     "confirm": "Confirmar",
+    "cancel": "Cancelar",
     "save": "Salvar",
     "incluir": "Novo"
 }

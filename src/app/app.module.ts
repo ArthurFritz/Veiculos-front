@@ -11,6 +11,7 @@ import { AuthGuard } from './shared';
 import { HttpClient } from './shared/services/HttpClient';
 import { UserService } from './shared/services/user.service';
 import { PeopleService } from './shared/services/people.service';
+import { VeiculoService } from './shared/services/veiculo.service';
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
@@ -37,7 +38,8 @@ export function HttpLoaderFactory(http: Http) {
                 AuthGuard,
                 HttpClient,
                 UserService,
-                PeopleService
+                PeopleService,
+                VeiculoService
                 ],
     bootstrap: [AppComponent]
 })

@@ -1,0 +1,84 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'carro'" [icon]="'fa-car'"></app-page-header>
+    <div class="row" *ngIf="status=='list'">
+        <div class="col col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    {{'veiculo.list' | translate}} <button class="btn btn-sm btn-success" (click)="newVeiculo()" style="float:right"><i class="fa fa-plus"></i> {{'incluir' | translate}}</button>
+                </div>
+                <div class="card-block table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>{{'veiculo.marca' | translate}}</th>
+                            <th>{{'veiculo.modelo' | translate}}</th>
+                            <th>{{'veiculo.ano' | translate}}</th>
+                            <th>{{'veiculo.placa' | translate}}</th>
+                            <th>{{'veiculo.pessoa' | translate}}</th>
+                            <th>{{'acoes' | translate}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngIf="!listVeiculos || listVeiculos.length == 0">
+                            <td colspan="6">Nenhum registro encontrado...</td>
+                        </tr>
+                        <tr *ngFor="let item of listVeiculos">
+                            <td>{{item.marca}}</td>
+                            <td>{{item.modelo}}</td>
+                            <td>{{item.ano}}</td>
+                            <td>{{item.placa}}</td>
+                            <td>{{item.pessoa}}</td>
+                            <td>
+                                <button class="button btn-link cursor" (click)="editar(item)"><i class="fa fa-edit"></i></button> 
+                                <button class="button text-danger btn-link cursor" (click)="excluir(item)"><i class="fa fa-remove"></i></button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row" *ngIf="status!='list'">
+        <div class="col col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    {{ (status=='edit' ? 'veiculo.edit' : 'veiculo.new') | translate}}
+                </div>
+                <div class="card-block">
+                    <form role="form" [formGroup]="formVeiculo">
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-tag"></i></span>
+                            <input type="text" formControlName="marca" class="form-control" placeholder="{{'veiculo.marca' | translate}}">
+                        </div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-id-card"></i></span>
+                            <input type="text" formControlName="modelo" class="form-control" placeholder="{{'veiculo.modelo' | translate}}">
+                        </div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            <input type="number" formControlName="ano" class="form-control" placeholder="{{'veiculo.ano' | translate}}">
+                        </div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-television"></i></span>
+                            <input type="text" formControlName="placa" class="form-control" placeholder="{{'veiculo.placa' | translate}}">
+                        </div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+                            <select formControlName="PessoaID" class="form-control">
+                                <option value="0">{{'veiculo.seleciona_pessoa' | translate}}</option>
+                                <option *ngFor="let item of listPessoas" value={{item.id}}>
+                                    {{item.nome}}
+                                </option>
+                            </select>
+                        </div>
+                    </form>
+                    <button class="btn btn-danger" type="button" (click)="cancelar()"> <i class="fa fa-close"></i>  {{ 'cancel' | translate}}</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-success" [disabled]="!formVeiculo.valid" type="button" (click)="saveAction()"> <i class="fa fa-check"></i> {{ 'save' | translate}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

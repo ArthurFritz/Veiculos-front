@@ -17,7 +17,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr *ngIf="listPeoples.length == 0">
+                        <tr *ngIf="listPeoples || listPeoples.length == 0">
                             <td colspan="4">Nenhum registro encontrado...</td>
                         </tr>
                         <tr *ngFor="let item of listPeoples">
@@ -57,9 +57,9 @@
                             <input type="text" [(ngModel)]="data"  (focus)="d.toggle()" (keydown)="false" ngbDatepicker #d="ngbDatepicker"  formControlName="dataNascimento" class="form-control" placeholder="{{'people.nascimento' | translate}}">
                         </div>
                     </form>
-                    <button class="btn btn-danger" type="button" (click)="cancelar()"> <i class="fa fa-close"></i> Cancelar</button>
+                    <button class="btn btn-danger" type="button" (click)="cancelar()"> <i class="fa fa-close"></i>  {{ 'cancel' | translate}} </button>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="btn btn-success" [disabled]="!formPessoa.valid" type="button" (click)="saveAction()"> <i class="fa fa-check"></i> Salvar</button>
+                    <button class="btn btn-success" [disabled]="!formPessoa.valid" type="button" (click)="saveAction()"> <i class="fa fa-check"></i>  {{ 'save' | translate}}</button>
                 </div>
                 <br/>
                 <br/>

@@ -16,10 +16,22 @@
         "documento": "Document",
         "nascimento": "Birthday"
     },
+    "veiculo":{
+        "new": "New veichile",
+        "edit": "Edit veichile",
+        "list": "List veichile",
+        "marca": "Brand",
+        "modelo": "Model",
+        "placa": "Board",
+        "pessoa": "People",
+        "seleciona_pessoa": "Selected people",
+        "ano": "Year"
+    },
     "acoes": "Actions",
     "editar": "Edit",
     "delete": "Remove",
     "confirm": "Confirm",
+    "cancel": "Cancel",
     "save": "Save",
     "incluir": "New"
 }
