@@ -80,6 +80,7 @@ export class VeiculoComponent implements OnInit {
 
     saveAction(){
         var dataRequest = this.formVeiculo.value;
+        dataRequest.ano = String(dataRequest.ano);
         if(this.status=='edit'){
             dataRequest.id = this.itemEdit.id
             this._veiculoService.editVeiculo(this.itemEdit.id,dataRequest).then(suc=>{

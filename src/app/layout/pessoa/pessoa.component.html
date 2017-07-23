@@ -17,7 +17,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr *ngIf="listPeoples || listPeoples.length == 0">
+                        <tr *ngIf="!listPeoples || listPeoples.length == 0">
                             <td colspan="4">Nenhum registro encontrado...</td>
                         </tr>
                         <tr *ngFor="let item of listPeoples">
