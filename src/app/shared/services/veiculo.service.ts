@@ -12,7 +12,7 @@ export class VeiculoService {
     constructor(private httpClient: HttpClient) { }
 
     getListVeiculos() {
-        return this.httpClient.get(AppSettings.BASE_API+"/odata/Veiculo")
+        return this.httpClient.get(AppSettings.BASE_API+"/odata/Veiculo?$select=id,marca,modelo,ano,placa,PessoaID,Proprietario/nome&$expand=Proprietario")
                               .toPromise()
                               .then((response: Response) => response.json());
     }
